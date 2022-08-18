@@ -7,8 +7,8 @@ rho = 8960; % Density, kg/m^3
 cp = 385; % Specific heat, W*s/(kg*C)
 
 [model] = ThermalModel(k, rho, cp);
-num_solution = 10000;
-plot_every = 100;
+num_solution = 50;
+plot_every = 10;
 
 mesh = model.Mesh;
 nodeConnectivity = mesh.Elements';
@@ -21,8 +21,8 @@ save_from = 0;
 
 save_plot = true;
 
-folder = "dataset_10000/";
-base = "./data/" + folder;
+
+base = "./data/"
 
 if save
     writematrix(nodeConnectivity, base + "/nodeConnectivity.csv")
