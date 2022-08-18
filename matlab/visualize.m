@@ -2,7 +2,7 @@ clear all; close all;
 
 T = readtable('./eval/solution.csv', 'NumHeaderLines', 1);
 T = table2array(T(:, 2:end));
-nodeCoordinate = readmatrix('./data/dataset_5000/nodeCoordinate.csv');
+nodeCoordinate = readmatrix('./data/nodeCoordinate.csv');
 
 
 initial = T(1, :);

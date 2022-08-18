@@ -102,3 +102,5 @@ plt.plot(relaxation_ary)
 plt.xlabel('Epoch')
 plt.ylabel('relaxation')
 plt.savefig(base_path + '/fig/relaxation.png')
+
+plt.show()
