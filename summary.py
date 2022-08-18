@@ -106,8 +106,8 @@ with open(f'./data/dataset_train.pickle', 'rb') as f:
 with open(f'./data/dataset_test.pickle', 'rb') as f:
     dataset_test = pickle.load(f)
 
-train_idx = range(4500)
-test_idx = range(4500, 5000)
+train_idx = range(45)
+test_idx = range(45, 50)
 dataset_train=SolutionDataset_RGNN(train_idx, dataset_train)
 dataset_test=SolutionDataset_RGNN(test_idx, dataset_test)
 
@@ -149,13 +149,13 @@ result_path = base_path + '/results/'
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 criterion = nn.MSELoss()
 
-batch_size = 100
-train_loader = DataLoader(dataset_train, batch_size = batch_size, shuffle=True, num_workers=4, drop_last=True)
-test_loader = DataLoader(dataset_test, batch_size = batch_size, shuffle=False, num_workers=4, drop_last=True)
+batch_size = 5
+train_loader = DataLoader(dataset_train, batch_size = batch_size, shuffle=True, drop_last=True)
+test_loader = DataLoader(dataset_test, batch_size = batch_size, shuffle=False, drop_last=True)
 
-print_every = 5
+print_every = 1
 
-num_epoch = 2000
+num_epoch = 200
 train_loss_ary = []
 test_loss_ary = []
 relaxation_array = []
@@ -206,7 +206,7 @@ for epoch in range(num_epoch):
     test_loss_ary.append(test_loss_avg)
     relaxation_array.append(relaxation_curent)
     
-    if (epoch+1) % 10 == 0:
+    if (epoch+1) % 100 == 0:
         torch.save(net, result_path + f'epoch{epoch+1}.pt')
 
 
