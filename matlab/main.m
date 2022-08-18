@@ -19,10 +19,10 @@ nodeCoordinate = mesh.Nodes';
 save = false;
 save_from = 0;
 
-save_plot = true;
+save_plot = false;
 
 
-base = "./data/"
+base = "./data/";
 
 if save
     writematrix(nodeConnectivity, base + "/nodeConnectivity.csv")
